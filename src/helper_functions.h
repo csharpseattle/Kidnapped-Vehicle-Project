@@ -58,6 +58,15 @@ inline double dist(double x1, double y1, double x2, double y2) {
 	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
+
+inline double multivariant_gaussian(double x, double y, double μ_x, double μ_y, double σ_x, double σ_y)
+{
+  double exponent = pow(x - μ_x, 2.0f) / (2 * pow(σ_x, 2)) + pow(y - μ_y, 2) / (2 * pow(σ_y, 2));
+  return  1 / (2 * M_PI * σ_x * σ_y) * pow(M_E, -exponent);
+}
+
+
+
 inline double * getError(double gt_x, double gt_y, double gt_theta, double pf_x, double pf_y, double pf_theta) {
 	static double error[3];
 	error[0] = fabs(pf_x - gt_x);
