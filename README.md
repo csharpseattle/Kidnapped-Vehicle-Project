@@ -25,7 +25,7 @@ Alternatively some scripts have been included to streamline this process, these 
 
 ## Particle Filter Implementation
 ### Inititalization
-I chose to use 50 particles in my implementation.  I found that I could go as low as 10 particles and still localize successfully. `particle_filter.cpp:27`
+I chose to use 50 particles in my implementation.  I found that I could go as low as 10 particles and still localize successfully.  Lower particles counts gave me higher error rates. `particle_filter.cpp:27`
 
 All particles are initialized across a normal distribution with standard deviations provided to the `init()` function. To generate the normal distribution `default_random_engine` and `normal_distribution` defined in the c++ `<random>` header. A vector of weights is also maintained.  All weights are initialized to 1.  `particle_filter.cpp:33-69`
 
